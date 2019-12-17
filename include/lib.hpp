@@ -23,7 +23,6 @@ struct pid
   int prev_error;
   int power = 100;
 };
-//your mom
 // Begin drive.cpp
 void user_control(pros::Motor motor,
   pros::controller_digital_e_t BUTTON_1,
