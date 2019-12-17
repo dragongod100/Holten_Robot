@@ -14,9 +14,7 @@ auto drive = okapi::ChassisControllerFactory::create(
 void initialize()
 {
 	set_brakes();
-
 	tare();
-
 	reset();
 }
 
@@ -59,7 +57,6 @@ void autonomous()
 	move_rel(arm, 500);
 	arm.move_velocity(3);
 	drive.moveDistance(2.25_in);
-
 	move_rel(extender, 14000, 500);
 	move_rel(wrist, 300, 500);
 	move_rel(claw, 100, 100);
