@@ -89,6 +89,5 @@ void opcontrol()
 		user_alt(arm,DIGITAL_X,DIGITAL_B,DIGITAL_X,DIGITAL_B,100);
 		user_alt(claw,DIGITAL_L1,DIGITAL_L2,DIGITAL_L1,DIGITAL_L2,100);
 		pros::delay(20);
-
 	}
 }
