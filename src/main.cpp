@@ -1,4 +1,4 @@
-#include "lib.hpp"
+#include "../include/lib.hpp"
 
 auto drive = okapi::ChassisControllerFactory::create(
 	{1_rmtr,2_rmtr}, {3_mtr,4_mtr},
