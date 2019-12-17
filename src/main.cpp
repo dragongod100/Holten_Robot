@@ -16,7 +16,7 @@ void initialize()
 	set_brakes();
 
 	tare();
-	
+
 	reset();
 }
 
@@ -84,7 +84,6 @@ void opcontrol()
 	while (true)
 	{
 		driver();
-
 		user_alt(wrist,DIGITAL_R2,DIGITAL_R1, DIGITAL_R2,DIGITAL_R1, 100);
 		user_alt(extender,DIGITAL_UP,DIGITAL_DOWN, DIGITAL_UP,DIGITAL_DOWN, 600);
 		user_alt(arm,DIGITAL_X,DIGITAL_B,DIGITAL_X,DIGITAL_B,100);
