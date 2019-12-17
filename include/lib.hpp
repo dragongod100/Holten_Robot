@@ -22,13 +22,6 @@ struct pid
   int derivative = 10;
   int prev_error;
   int power = 100;
-
-
-  /*
-
-  Holten = potat head
-
-  */
 };
 
 // Begin drive.cpp
