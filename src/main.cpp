@@ -14,8 +14,9 @@ auto drive = okapi::ChassisControllerFactory::create(
 void initialize()
 {
 	set_brakes();
-	
+
 	tare();
+	
 	reset();
 }
 
