@@ -2,7 +2,6 @@
 pid a;
 pid b;
 pid c;
-
 int PID(int setpoint, pros::Motor mo, int range,
   pid &pc, float kP, float kI, float kD)
 {

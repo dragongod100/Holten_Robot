@@ -24,6 +24,8 @@ struct pid
   int power = 100;
 };
 
+int mode = 0;
+
 // Begin drive.cpp
 void user_control(pros::Motor motor,
   pros::controller_digital_e_t BUTTON_1,

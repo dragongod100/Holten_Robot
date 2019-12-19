@@ -50,17 +50,26 @@ void competition_initialize() {}
  // 129.5_deg = 1/4 turn LEFT
 void autonomous()
 {
-	drive.moveDistance(9.125_in);
-	drive.turnAngle(129.5_deg);
-	drive.moveDistance(9_in);
-	////////////////////////////
-	move_rel(arm, 500);
-	arm.move_velocity(3);
-	drive.moveDistance(2.25_in);
-	move_rel(extender, 14000, 500);
-	move_rel(wrist, 300, 500);
-	move_rel(claw, 100, 100);
-	drive.moveDistance(-9_in);
+	if(mode == 0)
+	{
+		drive.moveDistance(3_in);
+		drive.moveDistance(-3_in);
+
+	}
+	else
+	{
+		drive.moveDistance(9.125_in);
+		drive.turnAngle(129.5_deg);
+		drive.moveDistance(9_in);
+		////////////////////////////
+		move_rel(arm, 500);
+		arm.move_velocity(3);
+		drive.moveDistance(2.25_in);
+		move_rel(extender, 14000, 500);
+		move_rel(wrist, 300, 500);
+		move_rel(claw, 100, 100);
+		drive.moveDistance(-9_in);
+	}
 }
 
 /**
@@ -78,13 +87,35 @@ void autonomous()
  */
 void opcontrol()
 {
+	bool enabled = true;
 	while (true)
 	{
-		driver();
-		user_alt(wrist,DIGITAL_R2,DIGITAL_R1, DIGITAL_R2,DIGITAL_R1, 100);
-		user_alt(extender,DIGITAL_UP,DIGITAL_DOWN, DIGITAL_UP,DIGITAL_DOWN, 600);
-		user_alt(arm,DIGITAL_X,DIGITAL_B,DIGITAL_X,DIGITAL_B,100);
-		user_alt(claw,DIGITAL_L1,DIGITAL_L2,DIGITAL_L1,DIGITAL_L2,100);
-		pros::delay(20);
+		if(enabled)
+		{
+			driver();
+			user_alt(wrist,DIGITAL_R2,DIGITAL_R1, DIGITAL_R2,DIGITAL_R1, 100);
+			user_alt(extender,DIGITAL_UP,DIGITAL_DOWN, DIGITAL_UP,DIGITAL_DOWN, 600);
+			user_alt(arm,DIGITAL_X,DIGITAL_B,DIGITAL_X,DIGITAL_B,100);
+			user_alt(claw,DIGITAL_L1,DIGITAL_L2,DIGITAL_L1,DIGITAL_L2,100);
+			pros::delay(20);
+			if(
+				(master.get_digital(DIGITAL_LEFT) == 1) &&
+				(master.get_digital(DIGITAL_RIGHT) == 1))
+			{
+				enabled = false;
+			}
+		}
+		else
+		{
+			if(
+				(master.get_digital(DIGITAL_Y) == 1) &&
+				(master.get_digital(DIGITAL_A) == 1) &&
+				(master.get_digital(DIGITAL_LEFT) == 1) &&
+				(master.get_digital(DIGITAL_RIGHT) == 1))
+			{
+				enabled = true;
+			}
+			pros::delay(20);
+		}
 	}
 }
