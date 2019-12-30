@@ -48,13 +48,14 @@ void competition_initialize() {}
  * from where it left off.
  */
  // 129.5_deg = 1/4 turn LEFT
+int mode = 0;
+
 void autonomous()
 {
 	if(mode == 0)
 	{
-		drive.moveDistance(3_in);
-		drive.moveDistance(-3_in);
-
+		drive.moveDistance(12_in);
+		drive.moveDistance(-12_in);
 	}
 	else
 	{
@@ -115,6 +116,7 @@ void opcontrol()
 			{
 				enabled = true;
 			}
+			stop_all_motors();
 			pros::delay(20);
 		}
 	}

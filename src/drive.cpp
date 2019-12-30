@@ -20,7 +20,7 @@ pros::Motor extender =
 pros::Motor{6, MOTOR_GEARSET_06, true};
 
 pros::Motor claw =
-pros::Motor{7, MOTOR_GEARSET_18, true};
+pros::Motor{10, MOTOR_GEARSET_18, true};
 
 pros::Motor wrist =
 pros::Motor{9, MOTOR_GEARSET_36, true};

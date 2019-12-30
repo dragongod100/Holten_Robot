@@ -74,3 +74,15 @@ void reset()
 {
 
 }
+
+void stop_all_motors()
+{
+	wheel_l1.move_velocity(0);
+	wheel_l2.move_velocity(0);
+	wheel_r1.move_velocity(0);
+	wheel_r2.move_velocity(0);
+	arm.move_velocity(0);
+	extender.move_velocity(0);
+	claw.move_velocity(0);
+	wrist.move_velocity(0);
+}

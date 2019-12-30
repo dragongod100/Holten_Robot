@@ -24,7 +24,6 @@ struct pid
   int power = 100;
 };
 
-int mode = 0;
 
 // Begin drive.cpp
 void user_control(pros::Motor motor,
@@ -43,4 +42,5 @@ void move_rel(pros::Motor mo, const double setpoint, const double vel = 0);
 void set_brakes();
 void tare();
 void reset();
+void stop_all_motors();
 // End auton.cpp
